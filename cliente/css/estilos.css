@@ -19,7 +19,7 @@ body {
     min-width: 500px;
 }
 
-@media only screen and(max-width:736px){
+@media only screen and(max-width: 736px){
     .form-group{
         min-width: 90vw;
     }
