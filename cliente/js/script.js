@@ -1,6 +1,6 @@
 class RegistroEvento{
-    constructor(){
-        this.frmRegistroEvento = document.querySelector('fmrRegistroEvento');
+    constructor() {
+        this.frmRegistroEvento = document.querySelector('#frmRegistroEvento');
         this.nombre = document.querySelector('#nombre');
         this.email = document.querySelector('#email');
         this.telefonoMovil = document.querySelector('#telefonoMovil');
@@ -11,13 +11,13 @@ class RegistroEvento{
         this.registrarEvento = document.querySelector('#registrarEvento');
         this.indicadorCarga = document.querySelector('#indicadorCarga');
 
-        this.frmRegistroEvento.addEventListener('submit',evento =>{
+        this.frmRegistroEvento.addEventListener('submit', evento => {
             this.subirFormulario(evento);
         });
     }
 
     subirFormulario(evento){
-        event.preventDefault();
+        evento.preventDefault();
 
         const datosFormulario = this.obtenerDatosFormulario();
         const resultadoValidacion = validarDatosRegistroEvento(datosFormulario);
@@ -33,26 +33,25 @@ class RegistroEvento{
 
     obtenerDatosFormulario(){
         return {
-            nombre : this.nombre.value,
-            email : this.email.value,
+            nombre: this.nombre.value,
+            email: this.email.value,
             telefonoMoivl: this.telefonoMovil.value,
             edad: this.edad.value,
             profesion: this.profesion.value,
-            experiencia: parseInt(document.querySelector('input[name="expetiencia"]:checked').value),
+            experiencia: parseInt(document.querySelector('input[name="experiencia"]:checked').value),
             expectativas: this.expectativas.value
             
 
-        }
+        };
     }
 
     removerErroresCampo(){
         this.nombre.parentElement.classList.remove('has-error');
         this.email.parentElement.classList.remove('has-error');
         this.telefonoMovil.parentElement.classList.remove('has-error');
-        his.edad.parentElement.classList.remove('has-error');
+        this.edad.parentElement.classList.remove('has-error');
         this.profesion.parentElement.classList.remove('has-error');
         this.experiencia.parentElement.classList.remove('has-error');
-        
     }
 
     resaltarCamposConErrores(resultado){
@@ -79,6 +78,32 @@ class RegistroEvento{
     prepararEnvioDatos(datosFormulario){
         this.registrarEvento.classList.add('hidden');
         this.indicadorCarga.classList.remove('hidden');
-        
+
+        solicitudApi('registro', datosFormulario, 'POST')
+        .then(respuesta => {
+            this.registrarEvento.classList.remove('hidden');
+            this.indicadorCarga.classList.add('hidden');
+            this.removerDatosFormulario();
+            alertify.alert(respuesta.mensaje);
+        })
+        .catch(() => {
+            this.registrarEvento.classList.remove('hidden');
+            this.indicadorCarga.classList.add('hidden');
+        });
     }
+
+    removerDatosFormulario(){
+        this.nombre.value = '';
+        this.email.value = '';
+        this.telefonoMovil.value = '';
+        this.edad.value = '';
+        this.profesion.value = 'Estudiante';
+        this.experiencia.checked = true;
+        this.expectativas.value = '';
+    }
+
 }
+
+window.addEventListener('load', () => {
+    new RegistroEvento();
+});

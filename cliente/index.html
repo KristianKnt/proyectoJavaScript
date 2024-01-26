@@ -35,7 +35,7 @@
     <div class="container">
         <div class="area-formulario">
             <h1 class="titulo-evento">JavaScript - Evento</h1>
-            <form action="#" id="frmRegistroEvento" method="POST">
+            <form  action="/registro" id="frmRegistroEvento" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre*:</label>
                     <input type="text" class="form control" id="nombre">
@@ -70,7 +70,7 @@
                     <label for="experiencia">Experiencia JavaScript:</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="experiencia" id="experiencia" value="1">Principiante</label>
+                            <label><input type="radio" name="experiencia" id="experiencia" value="1" checked>Principiante</label>
                         </div>
                         <div class="radio-inline">
                             <label><input type="radio" name="experiencia"  value="2">Intermedio</label>
@@ -95,6 +95,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" 
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/validacionFormulario.js"></script>
+    <script src="js/solicitudesApi.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
