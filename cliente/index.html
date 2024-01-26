@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Registro Eventos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -31,33 +37,28 @@
         </div>
     </nav>
 
-
     <div class="container">
         <div class="area-formulario">
-            <h1 class="titulo-evento">JavaScript - Evento</h1>
-            <form  action="/registro" id="frmRegistroEvento" method="POST">
+            <h1 class="titulo">JavaScript - Evento</h1>
+            <form id="frmRegistroEvento" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre*:</label>
-                    <input type="text" class="form control" id="nombre">
+                    <input type="text" class="form-control" id="nombre">
                 </div>
-
                 <div class="form-group">
                     <label for="email">Email*:</label>
-                    <input type="email" class="form control" id="email">
+                    <input type="email" class="form-control" id="email">
                 </div>
-
                 <div class="form-group">
-                    <label for="telefonoMovil">Telefono movil*:</label>
-                    <input type="phone" class="form control" id="telefonoMovil" placeholder="XXX-XXX-XXXX">
+                    <label for="telefonoMovil">Teléfono móvil*:</label>
+                    <input type="phone" class="form-control" id="telefonoMovil" placeholder="XXX-XXX-XXXX">
                 </div>
-
                 <div class="form-group">
                     <label for="edad">Edad*:</label>
-                    <input type="number" class="form control" id="edad" min="10",max="50">
+                    <input type="number" class="form-control" id="edad" min="10" , max="50">
                 </div>
-
                 <div class="form-group">
-                    <label for="profesion">Profesion:</label>
+                    <label for="profesion">Profesión:</label>
                     <select id="profesion" class="form-control">
                         <option value="estudiante">Estudiante</option>
                         <option value="desarrollador">Desarrollador</option>
@@ -65,37 +66,39 @@
                         <option value="otro">Otro</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="experiencia">Experiencia JavaScript:</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="experiencia" id="experiencia" value="1" checked>Principiante</label>
+                            <label><input type="radio" name="experiencia" id="experiencia" value="1"
+                                    checked>Principiante</label>
                         </div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="experiencia"  value="2">Intermedio</label>
+                            <label><input type="radio" name="experiencia" value="2">Intermedio</label>
                         </div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="experiencia"  value="3">Avanzado</label>
+                            <label><input type="radio" name="experiencia" value="3">Avanzado</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="expectativas">Expectativas que tiene del evento:</label>
-                    <textarea class="form-control" id="expectativas"  rows="5"></textarea>
+                    <textarea class="form-control" id="expectativas" rows="5"></textarea>
                 </div>
-                <button type="submit" class="btn btn-default" id="registrarEvento">Registar</button>
-                <img src="imagenes/loading.gif" alt="Cargando" class="indicador-carga hidden" id="indicadorCarga">
+                <button type="submit" class="btn btn-default" id="registrarEvento">Registrar</button>
+                <img src="images/loading.gif" alt="Cargando" class="indicador-carga hidden" id="indicadorCarga">
             </form>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" 
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="js/validacionFormulario.js"></script>
     <script src="js/solicitudesApi.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
