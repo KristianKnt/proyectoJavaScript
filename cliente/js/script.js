@@ -17,35 +17,33 @@ class RegistroEvento{
     }
 
     subirFormulario(evento){
-        evento.preventDefault();
+        event.preventDefault();
 
         const datosFormulario = this.obtenerDatosFormulario();
-        const resultadoValidacion = validarDatosRegistroEvento(datosFormulario);
+        const resultadoValidacion = validarDatosFormularioRegistroEvento(datosFormulario);
 
-        if(resultadoValidacion.esValido){
-            this.removerErroresCampo();
+        if (resultadoValidacion.esValido){
+            this.removerErroresCampos();
             this.prepararEnvioDatos(datosFormulario);
-        }else{
-            this.removerErroresCampo();
+        } else {
+            this.removerErroresCampos();
             this.resaltarCamposConErrores(resultadoValidacion.resultado);
         }
     }
 
-    obtenerDatosFormulario(){
+    obtenerDatosFormulario() {
         return {
             nombre: this.nombre.value,
             email: this.email.value,
-            telefonoMoivl: this.telefonoMovil.value,
+            telefonoMovil: this.telefonoMovil.value,
             edad: this.edad.value,
             profesion: this.profesion.value,
             experiencia: parseInt(document.querySelector('input[name="experiencia"]:checked').value),
             expectativas: this.expectativas.value
-            
-
         };
     }
 
-    removerErroresCampo(){
+    removerErroresCampos() {
         this.nombre.parentElement.classList.remove('has-error');
         this.email.parentElement.classList.remove('has-error');
         this.telefonoMovil.parentElement.classList.remove('has-error');
@@ -54,17 +52,17 @@ class RegistroEvento{
         this.experiencia.parentElement.classList.remove('has-error');
     }
 
-    resaltarCamposConErrores(resultado){
+    resaltarCamposConErrores(resultado) {
         if(!resultado.nombre){
             this.nombre.parentElement.classList.add('has-error');
         }
         if(!resultado.email){
             this.email.parentElement.classList.add('has-error');
         }
-        if(!resultado.telefonoMoivl){
+        if(!resultado.telefonoMovil){
             this.telefonoMovil.parentElement.classList.add('has-error');
         }
-        if(!resultado.edadd){
+        if(!resultado.edad){
             this.edad.parentElement.classList.add('has-error');
         }
         if(!resultado.profesion){
@@ -101,7 +99,6 @@ class RegistroEvento{
         this.experiencia.checked = true;
         this.expectativas.value = '';
     }
-
 }
 
 window.addEventListener('load', () => {
