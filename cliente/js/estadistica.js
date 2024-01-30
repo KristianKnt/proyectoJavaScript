@@ -1,66 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+class Estadisticas{
+    constructor() {
+        this.indicadorCarga = document.querySelector('#indicadorCarga');
+        this.errorCarga = document.querySelector('#errorCarga');
+        
+        this.tabsEstadisticas = document.querySelector('#tabsEstadisticas');
+        this.tabProfesion = document.querySelector('#tabProfesion');
+        this.tabExperiencia = document.querySelector('#tabExperiencia');
+        this.tabEdad = document.querySelector('#tabEdad');
+        
+        this.areaEstadisticas = document.querySelector('#areaEstadisticas');
+        this.graficoProfesion = document.querySelector('#graficoProfesion');
+        this.graficoExperiencia = document.querySelector('#graficoExperiencia');
+        this.graficoEdad = document.querySelector('#graficoEdad');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Registro Eventos</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+        this.datosEstadisticas;
+        this.cargarDatosEstadisticas();
+        this.agregarEventListeners();
+    }
 
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">Registro de Eventos</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li class="active"><a href="estadisticas.html">Estadísticas</a></li>
-                    <li><a href="ubicacion.html">Ubicación</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    cargarDatosEstadisticas(){
 
-    <div class="container">
-        <h1 class="titulo">Datos Asistencia</h1>
-        <div id="indicadorCarga">
-            <p>Los datos se están cargando...</p>
-            <img src="images/loading.gif" alt="Cargando..." class="indicador-carga"/>
-        </div>
-        <div id="errorCarga" class="hidden">
-            <h3>No se ha podido cargar los datos de estadísticas. Intente refrescando la página.</h3>
-        </div>
-        <ul class="nav nav-tabs hidden" id="tabsEstadisticas">
-            <li role="presentation" class="active"><a href="" id="tabProfesion">Profesión</a></li>
-            <li role="presentation"><a href="" id="tabExperiencia">Experiencia</a></li>
-            <li role="presentation"><a href="" id="tabEdad">Edad</a></li>
-        </ul>
-        <div id="areaEstadisticas" class="hidden area-estadisticas">
-            <canvas id="graficoProfesion"></canvas>
-            <canvas id="graficoExperiencia"></canvas>
-            <canvas id="graficoEdad"></canvas>
-        </div>
-    </div>
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <script src="js/solicitudesApi.js"></script>
-    <script src="js/estadisticas.js"></script>
-</body>
-
-</html>
+    agregarEventListeners(){
+        
+    }
+}
