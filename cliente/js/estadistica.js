@@ -19,10 +19,105 @@ class Estadisticas{
     }
 
     cargarDatosEstadisticas(){
+        solicitudApi('estadisticas')
+        .then(respuesta=> {
+            this.datosEstadisticas=respuesta;
+
+            this.indicadorCarga.classList.add('hidden');
+            this.tabsEstadisticas.classList.add('hidden');
+            this.areaEstadisticas.classList.add('hidden');
+
+            this.cargarDatosProfesion();
+        })
+        .catch(()=>{
+            this.indicadorCarga.classList.add('hidden');
+            this.errorCarga.classList.remove('hidden');
+        });
 
     }
 
     agregarEventListeners(){
+        this.tabProfesion.addEventListener('click',this.cargarDatosProfesion.bind(this));
+        this.tabExperiencia.addEventListener('click',this.cargarDatosExperiencia.bind(this));
+        this.tabEdad.addEventListener('click',this.cargarDatosEdad.bind(this));
         
+    }
+
+    cargarDatosProfesion(evento = null){
+        if(evento){
+            evento.preventDefault();
+        }
+
+        this.ocultarGraficos();
+        this.graficoProfesion.classList.remove('hidden');
+        this.tabProfesion.classList.add('active');
+
+        const data = {
+            datasets:[{
+                data: this.datosEstadisticas.profesion,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'                  
+                ],
+                bordeColor:['white','white','white','white']
+            }],
+            labels:['Estudiante','Desarrollador','Ingeniero','Otro']
+        };
+        new Chart(this.graficoProfesion,{type: 'pie',data});
+    }
+
+    cargarDatosExperiencia(evento = null){
+        if(evento){
+            evento.preventDefault();
+        }
+
+        this.ocultarGraficos();
+        this.graficoExperiencia.classList.remove('hidden');
+        this.tabExperiencia.classList.add('active');
+
+        const data = {
+            datasets:[{
+                data: this.datosEstadisticas.experiencia,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)'               
+                ],
+                bordeColor:['white','white','white']
+            }],
+            labels:['Principiante','Intermedio','Avanzado']
+        };
+        new Chart(this.graficoExperiencia,{type: 'pie',data});
+    }
+
+    cargarDatosEdad(evento = null){
+        if(evento){
+        evento.preventDefault();
+        }
+        
+        this.ocultarGraficos();
+        this.graficoEdad.classList.remove('hidden');
+        this.tabEdad.classList.add('active');
+
+        const data = {
+            datasets:[{
+                data: this.datosEstadisticas.edad,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)'               
+                ],
+                bordeColor:['white','white','white']
+            }],
+            labels:['Grupo 40 años','Grupo 30 años','Grupo 20 años']
+        };
+        new Chart(this.graficoEdad,{type: 'pie',data});
+    }
+
+
+    ocultarGraficos(){
+
     }
 }
