@@ -118,6 +118,16 @@ class Estadisticas{
 
 
     ocultarGraficos(){
+        this.graficoProfesion.classList.add('hidden');
+        this.graficoExperiencia.classList.add('hidden');
+        this.graficoEdad.classList.add('hidden');
 
+        this.tabProfesion.classList.remove('active');
+        this.tabExperiencia.classList.remove('active');
+        this.tabEdad.classList.add('active');
     }
 }
+
+window.addEventListener('load',() =>{
+    new Estadisticas();
+})
