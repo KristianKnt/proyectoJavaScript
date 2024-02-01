@@ -21,11 +21,12 @@ class Estadisticas{
     cargarDatosEstadisticas(){
         solicitudApi('estadisticas')
         .then(respuesta=> {
+            console.log(respuesta);
             this.datosEstadisticas=respuesta;
 
             this.indicadorCarga.classList.add('hidden');
-            this.tabsEstadisticas.classList.add('hidden');
-            this.areaEstadisticas.classList.add('hidden');
+            this.tabsEstadisticas.classList.remove('hidden');
+            this.areaEstadisticas.classList.remove('hidden');
 
             this.cargarDatosProfesion();
         })
@@ -44,13 +45,13 @@ class Estadisticas{
     }
 
     cargarDatosProfesion(evento = null){
+        this.tabProfesion.classList.add('active');
         if(evento){
             evento.preventDefault();
         }
 
         this.ocultarGraficos();
         this.graficoProfesion.classList.remove('hidden');
-        this.tabProfesion.classList.add('active');
 
         const data = {
             datasets:[{
