@@ -4,7 +4,7 @@ function incializarMap(){
         center:{lat:4.60971,lng:-74.08175}
     });
 
-    let marcador = google.maps.Marker({
+    let marcador = new google.maps.Marker({
         map:mapa,
         draggable:true,
         animation: google.maps.Animation.Drop,
@@ -26,6 +26,8 @@ function incializarMap(){
 
 window.addEventListener('load',()=>{
     const scriptMapa = document.createElement('script');
-    const llaveApi='';
+    //const llaveApi='AIzaSyCmwPkEWnEftq1p9dXiJguxvF7feZsNIls';
+    const llaveApi='AIzaSyD46P_2n8SeyON0C3rKacJfNCfyI_ovo54';
     scriptMapa.src = `https://maps.googleapis.com/maps/api/js?key=${llaveApi}&callback=incializarMap`;
+    document.body.appendChild(scriptMapa);
 })
