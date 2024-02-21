@@ -15,7 +15,7 @@ class RegistroEvento{
             this.subirFormulario(evento);
         });
     }
-
+// subir formulario
     subirFormulario(evento){
         event.preventDefault();
 
